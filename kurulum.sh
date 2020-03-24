@@ -15,7 +15,7 @@ distro_check(){
 }
 
 curl_ip(){
-        var='/opencpn-monitor'
+        var='/openvpn-monitor'
         ip=`dig +short myip.opendns.com @resolver1.opendns.com`
         echo ">> Kurulum tamamlandi <<"
         echo "http://"${ip}${var}
