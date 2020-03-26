@@ -1,16 +1,11 @@
 #!/bin/bash
 
-die() {
-	echo "$*" >&2
-	exit 444
-}
-
 distro_check(){
 	ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 	if [[ $ID == ubuntu ]]; then
 		main
 	else
-		die "You need to be root to use $0"
+		die "ubuntu only"
 	fi
 }
 
