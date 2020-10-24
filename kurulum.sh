@@ -19,7 +19,9 @@ curl_ip(){
 install_openvpn() {
 	echo ">> OpenVPN kurulumu baslatiliyor"
 	echo ">> indirme islemi basliyor"
-	wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+	curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+	chmod +x openvpn-install.sh
+	./openvpn-install.sh
 	apt-get -y install git curl apache2 libapache2-mod-wsgi python-geoip2 python-ipaddr python-humanize python-bottle python-semantic-version geoip-database-extra geoipupdate
 	echo "Apache config ayalari yapiliyor"
 	echo "WSGIScriptAlias /openvpn-monitor /var/www/html/openvpn-monitor/openvpn-monitor.py" >> /etc/apache2/conf-available/openvpn-monitor.conf
